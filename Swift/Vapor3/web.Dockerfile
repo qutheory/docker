@@ -3,11 +3,6 @@ FROM swift:4.2 as builder
 WORKDIR /app/
 COPY . .
 
-RUN \
-  apt-get -q update && apt-get -q -y install \
-  libssl-dev \
-  && rm -r /var/lib/apt/lists/*
-
 RUN mkdir -p /build/lib && cp -R /usr/lib/swift/linux/*.so /build/lib
 RUN swift build -c release
 
