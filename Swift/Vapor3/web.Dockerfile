@@ -1,5 +1,6 @@
 # You can set the Swift version to what you need for your app. Versions can be found here: https://hub.docker.com/_/swift
 FROM swift:4.2 as builder
+
 RUN apt-get -qq update && apt-get -q -y install \
   tzdata \
   && rm -r /var/lib/apt/lists/*
@@ -22,4 +23,4 @@ COPY --from=builder /build/lib/* /usr/lib/
 # Uncommand the next line if you are using Leaf
 #COPY --from=builder /app/Resources ./Resources
 
-ENTRYPOINT ./Run serve --env production --hostname 0.0.0.0 --port 80
+ENTRYPOINT ./Run serve --env $ENVIRONMENT --hostname 0.0.0.0 --port 80
