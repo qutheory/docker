@@ -1,6 +1,10 @@
 # You can set the Swift version to what you need for your app. Versions can be found here: https://hub.docker.com/_/swift
 FROM swift:4.2 as builder
 
+# For local build, add `--build-arg environment=local`
+ARG env=""
+ENV ENVIRONMENT=$env
+
 RUN apt-get -qq update && apt-get -q -y install \
   tzdata \
   && rm -r /var/lib/apt/lists/*
