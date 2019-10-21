@@ -10,15 +10,6 @@ To setup the template in your app, run the following command to download the tem
 curl -O https://raw.githubusercontent.com/vapor-cloud/docker/master/Frontend/VueJS/web.Dockerfile
 ```
 
-### Custom nginx config
-
-To customize nginx config, to allow all routes to go to the index.html file, you should uncomment the file documented in `web.Dockerfile`
-And download the `nginx.conf` file like this:
-
-```bash
-https://raw.githubusercontent.com/vapor-cloud/docker/master/Frontend/VueJS/nginx.conf
-```
-
 ## Test locally
 
 To test it and make sure it works locally, you can run the following commands
